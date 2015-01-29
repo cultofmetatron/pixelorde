@@ -1,0 +1,1 @@
+{"version":3,"file":"app.js","names":[],"mappings":"","sources":["app.js"],"sourcesContent":["\nvar react = require('react');\ndebugger\nconsole.log('hello Nurse!!')\n"],"sourceRoot":"/source/"}
