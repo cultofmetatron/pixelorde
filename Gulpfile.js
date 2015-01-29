@@ -50,7 +50,7 @@ gulp.task('frontend', function() {
 gulp.task('less', function() {
   gulp.src('./src/styles/**/*.less')
     .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
+      paths: [ path.join(__dirname, 'src', 'styles') ]
     }))
     .pipe(gulp.dest('./build/styles'));
 });
@@ -73,7 +73,8 @@ gulp.task('default', function() {
   gulp.run('less')
   gulp.run('frontend');
   gulp.run('scripts');
-  gulp.watch('./src/**/*.js',['frontend', 'scripts', 'less']);
+  gulp.watch('./src/**/*.js',['frontend', 'scripts']);
+  gulp.watch('./src/**/*.less', ['less']);
   
 });
 
