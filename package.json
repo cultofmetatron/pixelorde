@@ -1,12 +1,12 @@
 {
-  "name": "audiolathe",
+  "name": "pixelorde",
   "version": "0.0.1",
-  "description": "a basic audio synth",
+  "description": "a pixel editor",
   "main": "index.html",
   "node-main": "index.js",
   "engine": "node 0.11.15",
   "scripts": {
-    "start": "nodewebkit",
+    "start": "gulp",
     "test": "mocha test"
   },
   "keywords": [
