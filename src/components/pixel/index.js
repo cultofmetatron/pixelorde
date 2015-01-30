@@ -1,4 +1,4 @@
-
+var _ = require('lodash');
 var React = require('react');
 
 var Pixel = React.createClass({
@@ -12,7 +12,14 @@ var Pixel = React.createClass({
       size: this.props.size || 5
     };
   },
-  
+  setRGB: function(options) {
+    _.each(['red', 'green', 'blue',], (color) => {
+      if (options[color]) {
+        this.setState(color, options[color]);
+      }
+    }, this);
+    return this;
+  },
   computeColor: function() {
     return 'rgba(' + [ this.state.red, this.state.green, this.state.blue, this.state.alpha ].join(', ') + ')';
   },

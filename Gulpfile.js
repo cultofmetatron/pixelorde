@@ -40,7 +40,7 @@ gulp.task('frontend', function() {
       transform: [
         ["reactify", {"es6": true}],
         ['es6ify'],
-        //['famousify']
+        ['famousify']
       ]
     }))
     .pipe(sourcemaps.write())
