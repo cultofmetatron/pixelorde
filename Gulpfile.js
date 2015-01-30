@@ -26,7 +26,7 @@ var less = require('gulp-less');
 gulp.task('scripts', function() {
   return gulp.src('./src/node/**/*.js')
     .pipe(sourcemaps.init())
-    .pipe(traceur())
+    //.pipe(traceur())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./build/node'));
 });
@@ -40,7 +40,7 @@ gulp.task('frontend', function() {
       transform: [
         ["reactify", {"es6": true}],
         ['es6ify'],
-        ['famousify']
+        //['famousify']
       ]
     }))
     .pipe(sourcemaps.write())
@@ -57,18 +57,19 @@ gulp.task('less', function() {
 
 
 gulp.task('serve', function() {
-  nodemon({ 
+  nodemon({
     script: path.join(__dirname, 'build', 'node', 'index.js'), 
     ext: 'html js',
     watch: [path.join(__dirname, 'build', 'node'), path.join(__dirname, 'views')],
-    ignore: ['ignored.js'] })
+    ignore: ['ignored.js'],
+    nodeArgs: ['--harmony']})
   .on('restart', function () {
     console.log('restarted!')
   });
 });
 
 gulp.task('default', function() {
-  livereload.listen();
+  //livereload.listen();
   gulp.run('serve');
   gulp.run('less')
   gulp.run('frontend');
